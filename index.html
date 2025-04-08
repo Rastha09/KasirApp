@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Cetak Struk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "login.html";
+    }
+  </script>
+  <div class="container">
+    <h2>Struk Pembelian</h2>
+    <div id="statusPrinter">Mencoba koneksi ke printer...</div>
+    <img id="logoPreview" src="" alt="Logo Toko" />
+    <input type="file" id="logoInput" accept="image/*">
+    <input type="text" id="namaToko" placeholder="Nama Toko">
+    <input type="text" id="barang" placeholder="Nama Barang">
+    <input type="number" id="harga" placeholder="Harga">
+    <img id="qrisPreview" src="" alt="QRIS" />
+    <input type="file" id="qrisInput" accept="image/*">
+   <select id="metodeCetak">
+  <option value="manual">Manual (preview & simpan)</option>
+  <option value="bluetooth">Bluetooth Printer</option>
+</select>
+
+<!-- Tombol Cetak dan Simpan -->
+<button onclick="cetakStruk()">Cetak Struk</button>
+<button id="simpanStrukBtn" style="display:none;" onclick="simpanStrukKeGambar()">Simpan ke Galeri</button>
+
+<!-- Preview Struk -->
+<div id="outputStruk" style="display:none; padding:20px; background:#fff; max-width:300px; margin:20px auto; box-shadow:0 0 10px rgba(0,0,0,0.1); text-align:center;" class="struk-box"></div>
+    <button onclick="simpanPengaturan()">Simpan Pengaturan</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+  <script src="main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
